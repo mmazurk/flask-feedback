@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %} Register {% endblock %}
+
+{% block content %}
+
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <h1>{{status}} Feedback </h1>
+
+                <p>
+                    {{ form.title.label }}
+                    {{ form.title(class_="form-control") }}
+
+                    {{ form.content.label }}
+                    {{ form.content(rows = "10", class_="form-control") }}
+
+                    {% for error in form.errors %}
+                    <span class="form-text">{{ error }}</span>
+                    {% endfor %}
+
+                </p>
+
+                <button class="btn btn-primary my-2">{{status}} Feedback</button>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+{% endblock %}

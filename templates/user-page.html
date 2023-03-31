@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %} Register {% endblock %} {% block
+content %}
+
+<div class="container">
+  <div class="row justify-content-center my-3">
+    <div class="col-3">
+      <h1>User Home Page</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center my-3">
+    <div class="col-7">
+      <div>
+        <h2>Information About User</h2>
+        <ul class="list-group">
+          <li class="list-group-item"><span class="fw-bold">First Name:</span> {{user.first_name}}</li>
+          <li class="list-group-item"><span class="fw-bold">Last Name: </span>{{user.last_name}}</li>
+          <li class="list-group-item"><span class="fw-bold">Email: </span>{{user.email}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center my-3">
+    <div class="col-7">
+      <h2>Posts</h2>
+      {% for item in feedback %}
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">{{item.content}}</p>
+          <a href="/feedback/{{item.id}}/update" class="card-link">Edit This Feedback</a>
+          <a href="/users/{{user.username}}/feedback/add" class="card-link">Add New Feedback</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>  
+  </div>
+
+  {% endblock %}
+</div>

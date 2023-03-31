@@ -42,3 +42,16 @@ class User(db.Model):
             return u
         else:
             return False
+
+class Feedback(db.Model):
+    """This class represents feedback"""
+
+    __tablename__ = "feedback_table"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement = True)
+    title = db.Column(db.String(100))
+    content = db.Column(db.Text)
+    username = db.Column(db.String(20), db.ForeignKey('user_table.username'))
+
+    user = db.relationship("User", backref='feedback')
+

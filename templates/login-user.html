@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<h2 class="display-1">Login Here</h2>
+<p class="lead">Please enter your username and password below</p>
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.username.label }}
+        {{ form.username(class_="form-control") }}
+
+        {{ form.password.label }}
+        {{ form.password(class_="form-control") }}
+
+    {% for error in form.username.errors %}
+    <span class="form-text">{{ error }}</span>
+    {% endfor %}
+
+    </p>
+
+    <button class="btn btn-success" type="submit">Register</button>
+
+</form>
+
+</div>
+{% endblock %}
